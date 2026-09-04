@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyNest — Your exam library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="readonly.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span> StudyNest</a>
+    <nav>
+      <button class="nav-item active" data-filter="all"><span>▦</span> My library <b id="allCount">0</b></button>
+      <button class="nav-item" data-filter="recent"><span>◷</span> Recently added</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="exam-card"><span>🎯</span><div><strong>Boards 2026</strong><small>One document at a time.</small></div></div>
+      <a class="owner-link" id="ownerAccess" href="admin.html"><span>⌁</span> Owner access</a>
+      <p>New study material is added by the StudyNest team.</p>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div><p class="eyebrow">YOUR STUDY SPACE</p><h1>Ready to make progress?</h1><p class="subhead">Browse your worksheets, sample papers, and notes in one calm place.</p></div>
+      <button class="upgrade-button" id="upgradeButton"><span>✦</span> Upgrade — $1</button>
+    </header>
+
+    <section class="welcome-strip"><div class="welcome-icon">📖</div><div><h2>Your materials, ready when you are</h2><p>Open any PDF to study it. Downloads are available with StudyNest Plus.</p></div><button class="text-button" id="upgradeStripButton">See Plus benefits</button></section>
+
+    <section class="tools">
+      <label class="search"><span>⌕</span><input id="searchInput" placeholder="Search your library" aria-label="Search documents"></label>
+      <div class="select-wrap"><select id="subjectFilter" aria-label="Filter by subject"><option value="all">All subjects</option><option>Maths</option><option>Science</option><option>Social Science</option><option>English</option><option>Hindi</option><option>Other</option></select></div>
+      <div class="select-wrap"><select id="typeFilter" aria-label="Filter by document type"><option value="all">All materials</option><option>Worksheet</option><option>Sample Paper</option><option>Notes</option><option>Question Paper</option><option>Other</option></select></div>
+    </section>
+
+    <section class="library-heading"><div><h2>Your library</h2><p id="libraryInfo">Your study material, all in one place.</p></div></section>
+    <section id="documentGrid" class="document-grid"></section>
+    <section id="emptyState" class="empty-state"><div class="empty-illustration">📚</div><h2>New material is on the way</h2><p>Check back soon for worksheets and sample papers.</p></section>
+  </main>
+
+  <dialog id="viewerDialog" class="viewer-dialog"><div class="viewer-shell"><div class="viewer-top"><strong id="viewerTitle"></strong><button id="closeViewer" aria-label="Close viewer">×</button></div><iframe id="pdfViewer" title="PDF viewer"></iframe></div></dialog>
+  <dialog id="upgradeDialog"><section class="dialog-card upgrade-card"><button class="dialog-close" id="closeUpgrade" aria-label="Close">×</button><div class="plus-badge">✦ STUDYNEST PLUS</div><h2>Take your study library offline</h2><p>Download PDFs for revision even without internet, and support new study materials every week.</p><div class="price"><strong>$1</strong><span>one-time upgrade</span></div><button class="primary upgrade-cta" id="paymentButton">Upgrade for $1</button><small>Secure payment will be connected when the site is published.</small></section></dialog>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

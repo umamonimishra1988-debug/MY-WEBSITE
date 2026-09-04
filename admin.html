@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyNest — Owner dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+  <main class="admin-main">
+    <a class="brand admin-brand" href="index.html"><span class="brand-mark">✦</span> StudyNest <small>OWNER</small></a>
+    <section id="authScreen" class="auth-card">
+      <div class="lock-icon">⌁</div><p class="eyebrow">PRIVATE AREA</p><h1 id="authTitle">Set your owner passcode</h1>
+      <p id="authHelp">Create a passcode for this dashboard. You will use it whenever you add or manage study material on this browser.</p>
+      <label>Passcode<input id="passcodeInput" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters"></label>
+      <label id="confirmWrap">Confirm passcode<input id="confirmInput" type="password" autocomplete="new-password" placeholder="Enter it again"></label>
+      <button id="authButton" class="primary">Create owner access</button><p id="authError" class="error" role="alert"></p>
+      <a class="back-link" href="index.html">← Back to student library</a>
+    </section>
+
+    <section id="dashboard" hidden>
+      <header class="admin-header"><div><p class="eyebrow">OWNER DASHBOARD</p><h1>Manage your study library</h1><p class="subhead">Add resources here; students only see the read-only library.</p></div><button id="signOut" class="outline-button">Lock dashboard</button></header>
+      <section id="dropZone" class="admin-upload" tabindex="0" role="button"><div class="upload-icon">↑</div><div><h2>Upload study PDFs</h2><p>Drag PDFs here, or choose files from your device.</p></div><button id="browseButton" class="text-button">Choose PDFs</button><input id="fileInput" type="file" accept="application/pdf,.pdf" multiple hidden></section>
+      <section class="admin-library"><div class="library-heading"><div><h2>Published material</h2><p id="adminInfo">No PDFs uploaded yet.</p></div></div><div id="adminGrid" class="document-grid"></div><section id="adminEmpty" class="empty-state"><div class="empty-illustration">📚</div><h2>Your library is empty</h2><p>Upload PDFs here and they will appear in the student library.</p></section></section>
+    </section>
+  </main>
+  <dialog id="detailsDialog"><form method="dialog" class="dialog-card" id="detailsForm"><button class="dialog-close" value="cancel" aria-label="Close">×</button><p class="eyebrow">PUBLISH MATERIAL</p><h2 id="dialogFileName">New document</h2><label>Subject<select id="dialogSubject"><option>Maths</option><option>Science</option><option>Social Science</option><option>English</option><option>Hindi</option><option>Other</option></select></label><label>Material type<select id="dialogType"><option>Worksheet</option><option>Sample Paper</option><option>Notes</option><option>Question Paper</option><option>Other</option></select></label><label>Display title<input id="dialogLabel" maxlength="60" placeholder="e.g. Maths Chapter 4 Practice"></label><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button id="saveDocument" value="default" class="primary">Publish PDF</button></div></form></dialog>
+  <div id="toast" role="status"></div><script src="admin.js"></script>
+</body>
+</html>
